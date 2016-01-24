@@ -31,10 +31,14 @@
             }
             catch (DbEntityValidationException ex)
             {
-                this.ErrorMessage.Text = 
-                    ex.EntityValidationErrors
-                    .FirstOrDefault()?.ValidationErrors
-                    .FirstOrDefault()?.ErrorMessage;
+                this.ErrorMessage.Text = string.Empty;
+                foreach (var entityValidationError in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationError.ValidationErrors)
+                    {
+                        this.ErrorMessage.Text += validationError.ErrorMessage + " ";
+                    }
+                }
 
                 return;
             }

@@ -10,7 +10,7 @@
 namespace SummitCommunity {
     
     
-    public partial class _Default {
+    public partial class Categories {
         
         /// <summary>
         /// RepeaterCategories control.

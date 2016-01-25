@@ -26,6 +26,19 @@
 
         <div class="col-md-8">
             <h2>Latest topics</h2>
+            <asp:Repeater id="RepeaterCategories" runat="server">
+        
+                <ItemTemplate>
+                    <div class="col-md-6">
+                        <asp:Label ID="LabelLatestTopic1" runat="server">Topic 1</asp:Label>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Label ID="LabelLatestTopic1Cat" runat="server">Category 1</asp:Label>
+                    </div>
+                </ItemTemplate>
+     
+        </asp:Repeater>
+
             <table class="table" Style='width:100%'>
                 <tr>
                     <td Style='width:70%'>Topic 1</td>
@@ -49,11 +62,6 @@
                 </tr>
             </table>
         </div>
-
-        
-
-    </div>
-
-        
+    </div>     
 
 </asp:Content>

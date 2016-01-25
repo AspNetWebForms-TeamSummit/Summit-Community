@@ -11,7 +11,7 @@ namespace SummitCommunity
 {
 
 
-    public partial class Contact
+    public partial class Statistics
     {
     }
 }

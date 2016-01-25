@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/27b0588d-4c25-40fa-b7d0-56e3c33ee5e8/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/SummitCommunity</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -255,6 +256,7 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -393,6 +395,14 @@
     <Compile Include="Categories.aspx.designer.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Data\Contracts\IRepository.cs" />
+    <Compile Include="Data\Contracts\ISummitCommunityData.cs" />
+    <Compile Include="Data\Contracts\ISummitCommunityDbContext.cs" />
+    <Compile Include="Data\GenericRepository.cs" />
+    <Compile Include="Data\Models\Answer.cs" />
+    <Compile Include="Data\Models\Category.cs" />
+    <Compile Include="Data\Models\Question.cs" />
+    <Compile Include="Data\SummitCommunityData.cs" />
     <Compile Include="Data\SummitCommunityDbContext.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -447,6 +457,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

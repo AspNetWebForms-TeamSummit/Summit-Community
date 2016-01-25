@@ -25,7 +25,7 @@ namespace SummitCommunity.Data
 
         public static SummitCommunityDbContext Create()
         {
-            return context;
+            return new SummitCommunityDbContext();
         }
 
         IDbSet<T> ISummitCommunityDbContext.Set<T>()

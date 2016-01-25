@@ -1,5 +1,6 @@
 ﻿namespace SummitCommunity.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -9,6 +10,7 @@
 
         public Question()
         {
+            this.CreatedOn = DateTime.Now;
             this.answers = new HashSet<Answer>();
         }
 
@@ -19,6 +21,10 @@
 
         [Required]
         public string Content { get; set; }
+
+        [Required]
+        public DateTime CreatedOn { get; private set; }
+
 
         public int Vote { get; set; }
 

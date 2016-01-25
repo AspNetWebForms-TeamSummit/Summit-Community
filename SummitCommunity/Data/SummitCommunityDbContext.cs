@@ -9,6 +9,8 @@ namespace SummitCommunity.Data
 
     public class SummitCommunityDbContext : IdentityDbContext<User>, ISummitCommunityDbContext
     {
+        private static readonly SummitCommunityDbContext context = new SummitCommunityDbContext();
+
         public SummitCommunityDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -23,7 +25,7 @@ namespace SummitCommunity.Data
 
         public static SummitCommunityDbContext Create()
         {
-            return new SummitCommunityDbContext();
+            return context;
         }
 
         IDbSet<T> ISummitCommunityDbContext.Set<T>()

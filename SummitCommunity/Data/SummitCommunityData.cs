@@ -10,6 +10,10 @@
         private readonly ISummitCommunityDbContext context;
         private readonly IDictionary<Type, object> repositories = new Dictionary<Type, object>();
 
+        public SummitCommunityData() : this(SummitCommunityDbContext.Create())
+        {
+        }
+
         public SummitCommunityData(ISummitCommunityDbContext context)
         {
             this.context = context;

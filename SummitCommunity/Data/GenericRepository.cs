@@ -7,6 +7,10 @@
 
     public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
+        public GenericRepository() : this(SummitCommunityDbContext.Create())
+        {
+        }
+
         public GenericRepository(ISummitCommunityDbContext context)
         {
             if (context == null)

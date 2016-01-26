@@ -13,8 +13,9 @@
         </div>
         
     </div>
+    <br />
     <div class="row">
-        <asp:GridView ID="GridViewTopics" runat="server"
+        <asp:GridView ID="GridViewTopics" runat="server" class="table table-hover"
             SelectMethod="GridViewTopics_GetData"
             ItemType="SummitCommunity.Data.Models.Question"
             AllowPaging="True" AllowSorting="True"
@@ -27,7 +28,9 @@
                 <asp:BoundField DataField="Category.Name" HeaderText="Category" />
                 <asp:BoundField DataField="User.FirstName" HeaderText="User" />
                 <asp:BoundField DataField="CreatedOn" HeaderText="Created on" SortExpression="CreatedOn" />
-            </Columns>           
+            </Columns>    
+            <PagerStyle />
+                  
         </asp:GridView>
     </div>
 

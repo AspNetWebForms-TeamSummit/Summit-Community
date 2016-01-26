@@ -5,46 +5,38 @@
     </div>
 
     <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Most discussed topics:</div>
-
-        <!-- Table -->
-        <table class="table">
-        ...
-        </table>
+      <div class="panel-heading">
+        <h3 class="panel-title">Most discussed topics:</h3>
+      </div>
+      <div class="panel-body">
+        <asp:Label runat="server" ID="MostDiscussedTopics"></asp:Label>
+      </div>
     </div>
 
     <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Top rated topics:</div>
-
-        <!-- Table -->
-        <div class="col-lg-12 ">  
-            <div class="table-responsive">  
-                <asp:GridView>
-
-                </asp:GridView>
-            </div>
-        </div>
+      <div class="panel-heading">
+        <h3 class="panel-title">Top rated topics:</h3>
+      </div>
+      <div class="panel-body">
+        <asp:Label runat="server" ID="TopRatedTopics"></asp:Label>
+      </div>
     </div>
 
     <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Top rated users:</div>
-
-        <!-- Table -->
-        <table class="table">
-        ...
-        </table>
+      <div class="panel-heading">
+        <h3 class="panel-title">Top rated topics:</h3>
+      </div>
+      <div class="panel-body">
+        <asp:Label runat="server" ID="TopRatedUsers"></asp:Label>
+      </div>
     </div>
-
+    
     <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Most active users:</div>
-
-        <!-- Table -->
-        <table class="table">
-        ...
-        </table>
+      <div class="panel-heading">
+        <h3 class="panel-title">Most active users:</h3>
+      </div>
+      <div class="panel-body">
+        <asp:Label runat="server" ID="MostActiveUsers"></asp:Label>
+      </div>
     </div>
 </asp:Content>

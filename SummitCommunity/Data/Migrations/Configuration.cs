@@ -26,7 +26,8 @@ namespace SummitCommunity.Data.Migrations
                 new Category { Name = "Cooking" },
                 new Category { Name = "Programming" },
                 new Category { Name = "DIY" },
-                new Category { Name = "Entrepreneuring" }
+                new Category { Name = "Entrepreneuring" },
+                new Category { Name = "Snowboarding" }
             };
 
             foreach (var cat in categories)

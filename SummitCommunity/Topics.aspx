@@ -14,11 +14,25 @@
         
     </div>
     <div class="row">
-        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+        <asp:GridView ID="GridViewTopics" runat="server"
+            SelectMethod="GridViewTopics_GetData"
+            ItemType="SummitCommunity.Data.Models.Question"
+            AllowPaging="True" AllowSorting="True"
+            DataKeyNames="Id"
+            AutoGenerateEditButton="false" 
+            AutoGenerateColumns="false">
+            <Columns>
+                <asp:BoundField DataField="Vote" HeaderText="Vote" />
+                <asp:BoundField DataField="Title" HeaderText="Title"/>
+                <asp:BoundField DataField="Category.Name" HeaderText="Category" />
+                <asp:BoundField DataField="User.FirstName" HeaderText="User" />
+                <asp:BoundField DataField="CreatedOn" HeaderText="Created on" SortExpression="CreatedOn" />
+            </Columns>           
+        </asp:GridView>
     </div>
 
     <div class="row">
-        Can`t find what you are looking for?  <mark>Open a new topic: </mark>           
+        Can`t find what you are looking for? Open a new topic:              
         <asp:Button ID="ButtonNewTopic" runat="server" class="btn btn-default" Text="New Topic" />
     </div>
 

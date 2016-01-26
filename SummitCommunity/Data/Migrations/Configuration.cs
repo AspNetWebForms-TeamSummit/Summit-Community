@@ -32,6 +32,27 @@ namespace SummitCommunity.Data.Migrations
                 new Category { Name = "Programming" },
                 new Category { Name = "DIY" },
                 new Category { Name = "Entrepreneuring" });
+
+            context.Questions.AddOrUpdate(
+                q => q.Title,
+                new Question
+                {
+                    Title ="Salty Muffins",
+                    Content = "Can someone please recommend a recipe for muffins with cheese?",
+                    CategoryId = 1
+                },
+            new Question
+            {
+                Title = "Chocolate Muffins",
+                Content = "Can someone please recommend a recipe for muffins with chocolate?",
+                CategoryId = 1
+            },
+            new Question
+            {
+                Title = "Database seeding",
+                Content = "I need to seed a MSSQL DB. Can you please tell me a smart way to do it?",
+                CategoryId = 2
+            });
         }
     }
 }

@@ -1,6 +1,7 @@
 namespace SummitCommunity.Data.Migrations
 {
     using System.Data.Entity.Migrations;
+    using SummitCommunity.Data.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<SummitCommunityDbContext>
     {
@@ -24,6 +25,13 @@ namespace SummitCommunity.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Categories.AddOrUpdate(
+                c => c.Name,
+                new Category { Name = "Cooking" },
+                new Category { Name = "Programming" },
+                new Category { Name = "DIY" },
+                new Category { Name = "Entrepreneuring" });
         }
     }
 }

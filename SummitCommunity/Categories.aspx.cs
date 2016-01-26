@@ -15,11 +15,7 @@ namespace SummitCommunity
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ISummitCommunityData data = new SummitCommunityData();
-            var allCategories = data.Categories.All().ToList();
-
-            RepeaterCategories.DataSource = allCategories;
-            RepeaterCategories.DataBind();
+        
         }
 
 

@@ -8,6 +8,8 @@
             <strong>Take part in the hottest discussions. Your opinion maters! </strong>
         </p>
     </div>
+    
+    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
 
     <div class="row">
 

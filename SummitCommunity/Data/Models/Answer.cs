@@ -14,8 +14,7 @@
 
         [Required]
         public string Content { get; set; }
-
-        [Required]
+        
         public DateTime CreatedOn { get; private set; }
 
         public int Vote { get; set; }

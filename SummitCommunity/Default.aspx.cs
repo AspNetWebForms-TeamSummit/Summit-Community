@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 namespace SummitCommunity
 {
     using System.Threading;
+    using Data.Models;
     using Ninject;
     using SummitCommunity.Data;
     using SummitCommunity.Data.Contracts;
@@ -21,6 +22,17 @@ namespace SummitCommunity
         {
             this.DropDownList1.DataSource = this.Data.Categories.All().Select(c => c.Name).ToList();
             this.DropDownList1.DataBind();
+        }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<Question> ListViewPopularQuestions_GetData()
+        {
+            return this.Data.Questions.All().OrderByDescending(q => q.Vote).Take(6);
         }
     }
 }

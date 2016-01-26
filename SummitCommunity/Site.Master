@@ -78,8 +78,8 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            <footer class="footer pull-right">
+                <p>&copy; <%: DateTime.Now.Year %> - Summit Community</p>
             </footer>
         </div>
     </form>

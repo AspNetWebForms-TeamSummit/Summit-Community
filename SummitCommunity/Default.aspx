@@ -1,44 +1,37 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SummitCommunity._Default" %>
+﻿<%@ Page Title="Summit Community" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SummitCommunity._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1><%: Title %></h1>
+        <p class="lead">Long text description here.Long text description here.Long text description here.</p>
     </div>
-    
-    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
+    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+    <div class="text-center">
+        <asp:ListView runat="server" ID="ListViewPopularQuestions"
+            ItemType="SummitCommunity.Data.Models.Question"
+            SelectMethod="ListViewPopularQuestions_GetData">
+            <LayoutTemplate>
+                <h2>Most popular questions</h2>
+                <asp:PlaceHolder runat="server" ID="itemPlaceHolder" />
+            </LayoutTemplate>
+            <ItemTemplate>
+                <itemtemplate>
+                    <div class="row">
+                        <h3><asp:hyperlink navigateurl='<%# "~/ViewQuestion?id=" + Item.Id %>' runat="server" Text="<%#: Item.Title %>" /> <small><%#: Item.Category.Name %></small></h3>
+                        <p>
+                            <%# Item.Content  %>
+                        </p>
+                        <p>Vote: <%#: Item.Vote %></p>
+                        <div>
+                            <i>by <%#: Item.User.FirstName + " " + Item.User.LastName %></i>
+                            <i>created on: <%# Item.CreatedOn %></i>
+                        </div>
+                    </div>
+                </itemtemplate>
+            </ItemTemplate>
+        </asp:ListView>
     </div>
 
 </asp:Content>

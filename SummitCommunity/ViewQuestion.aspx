@@ -1,39 +1,45 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewQuestion.aspx.cs" Inherits="SummitCommunity.ViewQuestion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>View Question by id</h1>
-    <asp:FormView ID="FormViewQuestionDetails" runat="server"
-        ItemType="SummitCommunity.Data.Models.Question"
-        SelectMethod="FormViewQuestionDetails_GetItem">
-        <ItemTemplate>
-            <h3><%#: Item.Title %></h3>
-            <table border="0">
-                <tr>
-                    <td>Author:</td>
-                    <td><%#: Item.User.FirstName + " " + Item.User.LastName %></td>
-                </tr>
-                <tr>
-                    <td>Category:</td>
-                    <td><%#: Item.Category.Name %></td>
-                </tr>
-                <tr>
-                    <td>Content:</td>
-                    <td><%#: Item.Content %></td>
-                </tr>
-                <tr>
-                    <td>Created On:</td>
-                    <td><%#: Item.CreatedOn %></td>
-                </tr>
-                <tr>
-                    <td>Vote:</td>
-                    <td><%#: Item.Vote %></td>
-                </tr>
-                <tr>
-                    <td>Answers count:</td>
-                    <td><%#: Item.Answers.Count %></td>
-                </tr>
-            </table>
-            <hr />
-        </ItemTemplate>
-    </asp:FormView>
+    <div class="text-center">
+        <asp:ListView ID="ListViewQuestionDetails" runat="server"
+            ItemType="SummitCommunity.Data.Models.Question"
+            SelectMethod="ListViewQuestionDetails_GetItem">
+            <ItemTemplate>
+                <h3><%#: Item.Title %></h3>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <p>Author: <%#: Item.User.FirstName + " " + Item.User.LastName %></p>
+                        <p>Category: <%#: Item.Category.Name %></p>
+                        <p>Content: <%#: Item.Content %></p>
+                        <p>Created On: <%#: Item.CreatedOn %></p>
+                        <p>Vote: <%#: Item.Vote %></p>
+                    </div>
+                </div>
+                <br />
+                <asp:ListView runat="server" ID="ListViewAnswers"
+                    ItemType="SummitCommunity.Data.Models.Answer"
+                    DataSource="<%# Item.Answers.OrderByDescending(a => a.CreatedOn) %>">
+                    <LayoutTemplate>
+                        <ul style="list-style-type: none">
+                            <h4>Answers:</h4>
+                            <br />
+                            <li runat="server" id="itemPlaceHolder"></li>
+                        </ul>
+                    </LayoutTemplate>
+                    <ItemSeparatorTemplate>
+                        <hr />
+                    </ItemSeparatorTemplate>
+                    <ItemTemplate>
+                        <li>
+                            <asp:Label runat="server" Text="<%# Item.Content %>" />
+                        </li>
+                    </ItemTemplate>
+                    <EmptyDataTemplate>
+                        No answers given.
+                    </EmptyDataTemplate>
+                </asp:ListView>
+            </ItemTemplate>
+        </asp:ListView>
+    </div>
 </asp:Content>

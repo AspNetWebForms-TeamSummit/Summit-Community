@@ -32,7 +32,7 @@ namespace SummitCommunity
         //     string sortByExpression
         public IQueryable<Question> ListViewPopularQuestions_GetData()
         {
-            return this.Data.Questions.All().OrderBy(q => q.Vote).Take(5);
+            return this.Data.Questions.All().OrderByDescending(q => q.Vote).Take(6);
         }
     }
 }

@@ -11,14 +11,23 @@
     <div class="text-center">
         <asp:ListView runat="server" ID="ListViewPopularQuestions"
             ItemType="SummitCommunity.Data.Models.Question"
-            SelectMethod="ListViewPopularQuestions_GetData">
+            SelectMethod="ListViewPopularQuestions_GetData"
+            GroupItemCount="2">
             <LayoutTemplate>
                 <h2>Most popular questions</h2>
-                <asp:PlaceHolder runat="server" ID="itemPlaceHolder" />
+                <asp:PlaceHolder runat="server" ID="groupPlaceHolder"></asp:PlaceHolder>
             </LayoutTemplate>
+            <GroupSeparatorTemplate>
+                <hr />
+            </GroupSeparatorTemplate>
+            <GroupTemplate>
+                <div class="row">
+                    <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
+                </div>
+            </GroupTemplate>
             <ItemTemplate>
                 <itemtemplate>
-                    <div class="row">
+                    <div class="col-md-6">
                         <h3><asp:hyperlink navigateurl='<%# "~/ViewQuestion?id=" + Item.Id %>' runat="server" Text="<%#: Item.Title %>" /> <small><%#: Item.Category.Name %></small></h3>
                         <p>
                             <%# Item.Content  %>
@@ -33,5 +42,4 @@
             </ItemTemplate>
         </asp:ListView>
     </div>
-
 </asp:Content>

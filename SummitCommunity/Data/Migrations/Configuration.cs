@@ -4,8 +4,11 @@ namespace SummitCommunity.Data.Migrations
     using SummitCommunity.Data.Models;
     using System.Collections.Generic;
     using System.Linq;
+    using System;
     internal sealed class Configuration : DbMigrationsConfiguration<SummitCommunityDbContext>
     {
+        private static Random random = new Random();
+
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
@@ -52,15 +55,49 @@ namespace SummitCommunity.Data.Migrations
                 {
                     Title = "Question" + i,
                     Content = "What to do with my question? Can someone answer me, please ?!",
-                    Category = categories[i%3],
-                    CategoryId = categories[i%3].Id,
+                    Category = categories[i % 3],
+                    CategoryId = categories[i % 3].Id,
                     User = user,
-                    UserId = user.Id
+                    UserId = user.Id,
+                    Vote = random.Next(-5, 6)
                 };
 
+                questions.Add(question);
                 context.Questions.Add(question);
             }
             
+            context.SaveChanges();
+
+            for (int i = 0; i < questions.Count - 2; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    var answerOne = new Answer
+                    {
+                        Content = "I'm answering now.Read me!",
+                        User = user,
+                        UserId = user.Id,
+                        Question = questions[i],
+                        QuestionId = questions[i].Id
+                    };
+
+                    context.Answers.Add(answerOne);
+                }
+
+                var answerTwo = new Answer
+                {
+                    Content = i + " Let's answer this question.This is the correct answer!",
+                    User = user,
+                    UserId = user.Id,
+                    Question = questions[i],
+                    QuestionId = questions[i].Id
+                };
+
+                
+                
+                context.Answers.Add(answerTwo);
+            }
+
             context.SaveChanges();
         }
     }

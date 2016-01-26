@@ -13,12 +13,12 @@ namespace SummitCommunity {
     public partial class ViewQuestion {
         
         /// <summary>
-        /// FormViewQuestionDetails control.
+        /// ListViewQuestionDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FormViewQuestionDetails;
+        protected global::System.Web.UI.WebControls.ListView ListViewQuestionDetails;
     }
 }

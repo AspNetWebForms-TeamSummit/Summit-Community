@@ -32,6 +32,7 @@
                                 <p class="text-right">
                                     <asp:hyperlink navigateurl='<%# "~/Topics?id=" + Item.Id %>' runat="server" 
                                     class="btn btn-default" role="button">Go to topics...</asp:hyperlink>
+                                    <%--<asp:Button runat="server" ID="GoToTopics" class="btn btn-default" Text="Go to topics..." OnClick="GoToTopics_Click"/>--%>
                                 </p>
                             </div>
                         </div> 

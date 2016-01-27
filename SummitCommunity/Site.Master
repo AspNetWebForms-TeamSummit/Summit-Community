@@ -79,7 +79,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer class="footer pull-right">
-                <p>&copy; <%: DateTime.Now.Year %> - Summit Community</p>
+                <%--<p>&copy; <%: DateTime.Now.Year %> - Summit Community</p>--%>
             </footer>
         </div>
     </form>

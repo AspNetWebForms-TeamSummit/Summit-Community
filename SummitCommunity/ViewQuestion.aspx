@@ -19,7 +19,9 @@
                 <br />
                 <asp:ListView runat="server" ID="ListViewAnswers"
                     ItemType="SummitCommunity.Data.Models.Answer"
-                    DataSource="<%# Item.Answers.OrderByDescending(a => a.CreatedOn) %>">
+                    SelectMethod="ListViewAnswers_GetData"
+                    InsertMethod="ListViewAnswers_InsertItem"
+                    InsertItemPosition="LastItem">
                     <LayoutTemplate>
                         <ul style="list-style-type: none">
                             <h4>Answers:</h4>
@@ -35,6 +37,39 @@
                             <asp:Label runat="server" Text="<%# Item.Content %>" />
                         </li>
                     </ItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:Panel ID="PanelInsertAnswer" runat="server" 
+                            Visible="<%# this.User.Identity.IsAuthenticated ? true : false %>">
+                            <div class="row">
+                                <p>
+                                    <asp:TextBox runat="server" ID="TextBoxInsertContent"
+                                        Width="500"
+                                        TextMode="MultiLine"
+                                        placeholder="Add answer to this question..."
+                                        Text="<%#: BindItem.Content %>" Rows="6">
+                                    </asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server"
+                                        ErrorMessage="Content is Required!"
+                                        ValidationGroup="InsertAnswer"
+                                        ControlToValidate="TextBoxInsertContent"
+                                        ForeColor="Red" />
+                                </p>
+                                <div>
+                                    <asp:LinkButton runat="server" ID="ButtonInsertAnswer"
+                                        CssClass="btn btn-success"
+                                        CommandName="Insert"
+                                        Text="Insert"
+                                        CausesValidation="true"
+                                        ValidationGroup="InsertAnswer" />
+                                    <asp:LinkButton runat="server" ID="ButtonCancelAnswer"
+                                        CssClass="btn btn-danger"
+                                        CommandName="Cancel"
+                                        Text="Cancel"
+                                        CausesValidation="false" />
+                                </div>
+                            </div>
+                        </asp:Panel>
+                    </InsertItemTemplate>
                     <EmptyDataTemplate>
                         No answers given.
                     </EmptyDataTemplate>

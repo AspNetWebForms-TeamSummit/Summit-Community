@@ -20,8 +20,8 @@ namespace SummitCommunity
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.DropDownList1.DataSource = this.Data.Categories.All().Select(c => c.Name).ToList();
-            this.DropDownList1.DataBind();
+            //this.DropDownList1.DataSource = this.Data.Categories.All().Select(c => c.Name).ToList();
+            //this.DropDownList1.DataBind();
         }
 
         // The return type can be changed to IEnumerable, however to support

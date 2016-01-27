@@ -1,41 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using Ninject;
-using SummitCommunity.Data.Contracts;
-using System.IO;
-
-using SummitCommunity.Data.Models;
-
-namespace SummitCommunity.Admin
+﻿namespace SummitCommunity.Admin
 {
+    using System;
+    using System.Linq;
+    using System.IO;
+    using Ninject;
+    using SummitCommunity.Data.Contracts;
+    using SummitCommunity.Data.Models;
+
     public partial class AdminPage : System.Web.UI.Page
     {
         [Inject]
         public ISummitCommunityData Data { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreRender(object sender, EventArgs e)
         {
-            this.ListBoxCategories.DataSource = this.Data.Categories.All().Select(c => c.Name).OrderBy(n => n).ToList();
-            this.ListBoxCategories.DataBind();
+            this.DataBind();
         }
 
         protected void ButtonSaveCategory_Click(object sender, EventArgs e)
         {
-            string fileName = String.Empty;
-            string fileExtension = String.Empty;
+            string fileName = null;
+            string fileExtension = null;
 
-            if (FileControl.HasFile)
+            if (this.FileControl.HasFile)
             {
-                fileExtension = Path.GetExtension(FileControl.FileName);
+                fileExtension = Path.GetExtension(this.FileControl.FileName);
                 fileName = Guid.NewGuid().ToString();
-
-                FileControl.SaveAs(Server.MapPath
-                   ("/CategoryImages/") + fileName + fileExtension);
+                this.FileControl.SaveAs(this.Server.MapPath('/' + Constants.CategoryImagesFolder + '/' + fileName + fileExtension));
             }
 
             this.Data.Categories.Add(new Category
@@ -45,6 +36,45 @@ namespace SummitCommunity.Admin
                 FileExtension = fileExtension
             });
 
+            this.Data.SaveChanges();
+        }
+
+        public IQueryable<Category> CategoriesListView_GetData()
+        {
+            return this.Data.Categories.All();
+        }
+
+        // The id parameter name should match the DataKeyNames value set on the control
+        public void CategoriesListView_UpdateItem(int? id)
+        {
+            var category = this.Data.Categories.GetById(id);
+            if (category == null)
+            {
+                this.ModelState.AddModelError(string.Empty, $"A category with ID {id} could not be found.");
+                return;
+            }
+
+            this.TryUpdateModel(category);
+            if (this.ModelState.IsValid)
+            {
+                this.Data.SaveChanges();
+            }
+        }
+
+        public void CategoriesListView_DeleteItem(int? id)
+        {
+            var category = this.Data.Categories.GetById(id);
+            if (category == null)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(category.FileName))
+            {
+                File.Delete(this.Server.MapPath('/' + Constants.CategoryImagesFolder + '/' + category.FileName + category.FileExtension));
+            }
+
+            this.Data.Categories.Delete(category);
             this.Data.SaveChanges();
         }
     }

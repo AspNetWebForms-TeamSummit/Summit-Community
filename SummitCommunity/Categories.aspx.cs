@@ -30,7 +30,11 @@ namespace SummitCommunity
 
         public int GetQuestionsNumber(int categoryId)
         {
-            return 14;
+            return this.Data.Categories
+                .All()
+                .Where(c => c.Id == categoryId)
+                .Select(c => c.Questions.Count)
+                .FirstOrDefault();
         }
 
 

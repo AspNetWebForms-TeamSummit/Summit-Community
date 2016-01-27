@@ -9,7 +9,7 @@
         <h3 class="panel-title">Most discussed topics:</h3>
       </div>
       <div class="panel-body">
-        <asp:Label runat="server" ID="MostDiscussedTopics"></asp:Label>
+        <strong><asp:Label runat="server" ID="MostDiscussedTopics"></asp:Label></strong>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
         <h3 class="panel-title">Top rated topics:</h3>
       </div>
       <div class="panel-body">
-        <asp:Label runat="server" ID="TopRatedTopics"></asp:Label>
+        <strong><asp:Label runat="server" ID="TopRatedTopics"></asp:Label></strong>
       </div>
     </div>
 

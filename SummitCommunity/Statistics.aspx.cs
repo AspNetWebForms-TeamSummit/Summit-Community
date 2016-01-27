@@ -28,7 +28,7 @@ namespace SummitCommunity
             if (topicString == null)
             {
                 var topic = this.Data.Questions.All().OrderByDescending(q => q.Vote).First();
-                topicString = topic.Title + ": Vote  " + topic.Answers.Count.ToString();
+                topicString = topic.Title + ":   Vote  " + topic.Answers.Count.ToString();
                 Cache.Insert("TopTopics", topicString);
             }
 
@@ -42,7 +42,7 @@ namespace SummitCommunity
             if (topicString == null)
             {
                 var topic = this.Data.Questions.All().OrderByDescending(q => q.Answers.Count).First();
-                topicString = topic.Title + ": " + topic.Answers.Count.ToString() + "answers";
+                topicString = topic.Title + ":   " + topic.Answers.Count.ToString() + "answers";
                 Cache.Insert("MostDiscused", topicString);
             }
 

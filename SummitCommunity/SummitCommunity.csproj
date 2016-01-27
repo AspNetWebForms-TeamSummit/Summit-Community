@@ -420,6 +420,7 @@
     <Compile Include="Categories.aspx.designer.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Data\Contracts\IRepository.cs" />
     <Compile Include="Data\Contracts\ISummitCommunityData.cs" />
     <Compile Include="Data\Contracts\ISummitCommunityDbContext.cs" />
@@ -489,7 +490,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Start\App_Data\" />
+    <Folder Include="CategoryImages\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

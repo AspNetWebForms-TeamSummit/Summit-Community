@@ -37,8 +37,9 @@ namespace SummitCommunity
                 .FirstOrDefault();
         }
 
-
-
-
+        //protected void GoToTopics_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect = "~/Topics?id=" + Category.Id;
+        //}
     }
 }

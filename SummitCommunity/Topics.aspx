@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Topics" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Topics.aspx.cs" Inherits="SummitCommunity.Topics" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-header">
-      <h1><%: Title %> <small>in <strong>Category</strong></small></h1>
+      <h1><%: Title %> <small>in <strong>
+          <asp:Label ID="LabelCategory" runat="server"></asp:Label></strong></small></h1>
     </div>
 
     <div class="row">
@@ -21,16 +22,18 @@
             AllowPaging="True" AllowSorting="True"
             DataKeyNames="Id"
             AutoGenerateEditButton="false" 
-            AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="Vote" HeaderText="Vote" />
-                <asp:BoundField DataField="Title" HeaderText="Title"/>
-                <asp:BoundField DataField="Category.Name" HeaderText="Category" />
+            AutoGenerateColumns="false"
+            GridLines="None"
+            Font-Size="X-Large">
+            <Columns>               
+                <asp:BoundField DataField="Vote" HeaderText="Vote" SortExpression="Vote"/>
+                <asp:HyperlinkField HeaderText="Title" DataTextField="Title"
+                    DataNavigateUrlFields="Id" 
+                    DataNavigateUrlFormatString="~/ViewQuestion?id={0}" 
+                   />
                 <asp:BoundField DataField="User.FirstName" HeaderText="User" />
-                <asp:BoundField DataField="CreatedOn" HeaderText="Created on" SortExpression="CreatedOn" />
-            </Columns>    
-            <PagerStyle />
-                  
+                <asp:BoundField DataField="CreatedOn" HeaderText="Created on" SortExpression="CreatedOn" DataFormatString="{0:d}" />
+            </Columns>                     
         </asp:GridView>
     </div>
 

@@ -11,7 +11,6 @@ namespace SummitCommunity {
     
     
     public partial class Statistics {
-        
         /// <summary>
         /// MostDiscussedTopics control.
         /// </summary>
@@ -20,7 +19,7 @@ namespace SummitCommunity {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MostDiscussedTopics;
-        
+
         /// <summary>
         /// TopRatedTopics control.
         /// </summary>

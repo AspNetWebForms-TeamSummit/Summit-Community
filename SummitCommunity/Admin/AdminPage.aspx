@@ -6,4 +6,7 @@
     <asp:TextBox ID="TextBoxAddCategory" runat="server"></asp:TextBox>
     <asp:FileUpload ID="FileControl" runat="server" />
     <asp:Button ID="ButtonSaveCategory" runat="server" Text="Save" OnClick="ButtonSaveCategory_Click"/>
+    <br />
+    <asp:ListBox ID="ListBoxCategories" runat="server" Rows="10"></asp:ListBox>
+   
 </asp:Content>

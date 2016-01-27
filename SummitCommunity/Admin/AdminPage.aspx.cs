@@ -20,7 +20,8 @@ namespace SummitCommunity.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.ListBoxCategories.DataSource = this.Data.Categories.All().Select(c => c.Name).OrderBy(n => n).ToList();
+            this.ListBoxCategories.DataBind();
         }
 
         protected void ButtonSaveCategory_Click(object sender, EventArgs e)

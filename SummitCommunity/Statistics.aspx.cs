@@ -29,7 +29,7 @@ namespace SummitCommunity
             {
                 var topic = this.Data.Questions.All().OrderByDescending(q => q.Votes.Sum(v => v.Value)).First();
                 topicString = topic.Title + ":   Vote  " + topic.Answers.Count.ToString();
-                Cache.Insert("TopTopics", topicString);
+                Cache.Insert("TopTopics", topicString, null, DateTime.Now.AddMinutes(15d), System.Web.Caching.Cache.NoSlidingExpiration);
             }
 
             return topicString;
@@ -43,7 +43,7 @@ namespace SummitCommunity
             {
                 var topic = this.Data.Questions.All().OrderByDescending(q => q.Answers.Count).First();
                 topicString = topic.Title + ":   " + topic.Answers.Count.ToString() + "answers";
-                Cache.Insert("MostDiscused", topicString);
+                Cache.Insert("MostDiscused", topicString, null, DateTime.Now.AddMinutes(15d), System.Web.Caching.Cache.NoSlidingExpiration);
             }
 
             return topicString;

@@ -49,12 +49,12 @@ namespace SummitCommunity.Admin {
         protected global::System.Web.UI.WebControls.Button ButtonSaveCategory;
         
         /// <summary>
-        /// ListBoxCategories control.
+        /// CategoriesListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxCategories;
+        protected global::System.Web.UI.WebControls.ListView CategoriesListView;
     }
 }

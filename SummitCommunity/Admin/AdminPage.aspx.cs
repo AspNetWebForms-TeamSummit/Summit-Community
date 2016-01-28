@@ -41,7 +41,7 @@
 
         public IQueryable<Category> CategoriesListView_GetData()
         {
-            return this.Data.Categories.All();
+            return this.Data.Categories.All().OrderBy(c => c.Name);
         }
 
         // The id parameter name should match the DataKeyNames value set on the control

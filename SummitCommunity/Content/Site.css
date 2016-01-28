@@ -32,7 +32,24 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
+}
+
+.like-control {
+    margin: 20px 0 0 0;
+}
+
+    .like-control .like-value {
+        font-size: 24px;
+        text-align: center;
+        width: 40px;
+        display: inline-block;
+    }
+
+.question-header {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }

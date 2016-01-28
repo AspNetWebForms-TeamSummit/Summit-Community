@@ -37,15 +37,22 @@ namespace SummitCommunity.Data.Migrations
 
             context.SaveChanges();
 
-            User user = new User
-            {
-                UserName = "anonimous@anonimous.com",
-                Email = "anonimous@anonimous.com",
-                FirstName = "Anonymous",
-                LastName = "Snow"
-            };
+            var users = new List<User>();
 
-            context.Users.AddOrUpdate(user);
+            for (int i = 0; i < 50; i++)
+            {
+                var user = new User
+                {
+                    UserName = "anonimous" + i,
+                    Email = i + "anonimous@anonimous.com",
+                    FirstName = "Anonymous" + i,
+                    LastName = "Snow" + i
+                };
+
+                users.Add(user);
+                context.Users.Add(user);
+            }
+
             context.SaveChanges();
 
             var questions = new List<Question>();
@@ -58,15 +65,35 @@ namespace SummitCommunity.Data.Migrations
                     Content = "What to do with my question? Can someone answer me, please ?!",
                     Category = categories[i % 3],
                     CategoryId = categories[i % 3].Id,
-                    User = user,
-                    UserId = user.Id,
-                    Vote = random.Next(-5, 6)
+                    User = users[i],
+                    UserId = users[i].Id,
                 };
 
                 questions.Add(question);
-                context.Questions.Add(question);
             }
-            
+
+            var votes = new List<Vote>();
+
+            for (int i = 0; i < 50; i++)
+            {
+                var vote = new Vote
+                {
+                    Question = questions[i % 9],
+                    QuestionId = questions[i % 9].Id,
+                    User = users[i],
+                    UserId = users[i].Id,
+                    Value = random.Next(-1, 2)
+                };
+
+                context.Votes.Add(vote);
+                context.SaveChanges();
+            }
+
+            questions.ForEach(q =>
+            {
+                q.AverageVote = q.Votes.Sum(v => v.Value);
+                context.Questions.AddOrUpdate(q);
+            });
             context.SaveChanges();
 
             for (int i = 0; i < questions.Count - 2; i++)
@@ -76,8 +103,8 @@ namespace SummitCommunity.Data.Migrations
                     var answerOne = new Answer
                     {
                         Content = "I'm answering now.Read me!",
-                        User = user,
-                        UserId = user.Id,
+                        User = users[random.Next(0, 50)],
+                        UserId = users[random.Next(0, 50)].Id,
                         Question = questions[i],
                         QuestionId = questions[i].Id
                     };
@@ -88,14 +115,14 @@ namespace SummitCommunity.Data.Migrations
                 var answerTwo = new Answer
                 {
                     Content = i + " Let's answer this question.This is the correct answer!",
-                    User = user,
-                    UserId = user.Id,
+                    User = users[random.Next(0, 50)],
+                    UserId = users[random.Next(0, 50)].Id,
                     Question = questions[i],
                     QuestionId = questions[i].Id
                 };
 
-                
-                
+
+
                 context.Answers.Add(answerTwo);
             }
 

@@ -22,8 +22,8 @@
             var topicString = (string)this.Cache["TopTopics"];
             if (topicString == null)
             {
-                Question question = this.Data.Questions.All().OrderByDescending(q => q.Vote).FirstOrDefault();
-                topicString = question?.Title + ":   Vote  " + question?.Answers.Count;
+                var topic = this.Data.Questions.All().OrderByDescending(q => q.Votes.Sum(v => v.Value)).FirstOrDefault();
+                topicString = topic?.Title + ":   Vote  " + topic?.Answers.Count.ToString();
                 this.Cache.Insert("TopTopics", topicString);
             }
 

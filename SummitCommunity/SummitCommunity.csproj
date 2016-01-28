@@ -221,6 +221,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls\VoteControl.ascx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -421,6 +422,12 @@
       <DependentUpon>Categories.aspx</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Controls\VoteControl.ascx.cs">
+      <DependentUpon>VoteControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VoteControl.ascx.designer.cs">
+      <DependentUpon>VoteControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Data\Contracts\IRepository.cs" />
     <Compile Include="Data\Contracts\ISummitCommunityData.cs" />
     <Compile Include="Data\Contracts\ISummitCommunityDbContext.cs" />
@@ -428,6 +435,7 @@
     <Compile Include="Data\Models\Answer.cs" />
     <Compile Include="Data\Models\Category.cs" />
     <Compile Include="Data\Models\Question.cs" />
+    <Compile Include="Data\Models\Vote.cs" />
     <Compile Include="Data\SummitCommunityData.cs" />
     <Compile Include="Data\SummitCommunityDbContext.cs" />
     <Compile Include="Default.aspx.cs">

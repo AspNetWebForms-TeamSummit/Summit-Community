@@ -12,6 +12,8 @@
 
         IRepository<Question> Questions { get; }
 
+        IRepository<Vote> Votes { get; }
+        
         void SaveChanges();
     }
 }

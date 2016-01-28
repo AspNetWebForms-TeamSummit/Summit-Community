@@ -227,6 +227,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Admin\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -420,6 +421,7 @@
     <Compile Include="Categories.aspx.designer.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Controls\VoteControl.ascx.cs">
       <DependentUpon>VoteControl.ascx</DependentUpon>
     </Compile>
@@ -449,6 +451,7 @@
     <Compile Include="Data\Migrations\Configuration.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
     <Compile Include="Data\Models\User.cs" />
+    <Compile Include="Helpers\RoleActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -495,7 +498,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Start\App_Data\" />
+    <Folder Include="CategoryImages\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace SummitCommunity
+﻿namespace SummitCommunity
 {
-    using System.Threading;
-    using Data.Models;
+    using System;
+    using System.Linq;
+    using System.Web.UI;
     using Ninject;
-    using SummitCommunity.Data;
     using SummitCommunity.Data.Contracts;
+    using SummitCommunity.Data.Models;
 
     public partial class _Default : Page
     {
@@ -20,8 +14,6 @@ namespace SummitCommunity
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.DropDownList1.DataSource = this.Data.Categories.All().Select(c => c.Name).ToList();
-            //this.DropDownList1.DataBind();
         }
 
         // The return type can be changed to IEnumerable, however to support

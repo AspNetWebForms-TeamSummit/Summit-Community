@@ -11,7 +11,6 @@
             <strong>Take part in the hottest discussions. Your opinion maters! </strong>
         </p>
     </div>
-    <%--<asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>--%>
     <div class="text-center">
         <asp:ListView runat="server" ID="ListViewPopularQuestions"
             ItemType="SummitCommunity.Data.Models.Question"

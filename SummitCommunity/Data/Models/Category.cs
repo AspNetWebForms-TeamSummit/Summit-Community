@@ -20,6 +20,10 @@
         [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
+        public string FileName { get; set; }
+
+        public string FileExtension { get; set; }
+
         public virtual ICollection<Question> Questions
         {
             get { return this.questions; }

@@ -24,7 +24,7 @@
                 <itemtemplate>
                     <div class="col-md-3">
                         <div class="thumbnail">                     
-                            <img src="https://lh5.ggpht.com/8cG5ON-bA4QdB-FA1ulXaK2eaPS7tXzxTr2w33YKzoHtGTGzKN4qhMEmq9lXD7sJGqQ=w300" 
+                            <img src=<%# this.GetImage(Item.FileName, Item.FileExtension) %>
                                 alt="<%#Item.Name %>""
                                 Style="width: 200px">
                             <div class="caption">

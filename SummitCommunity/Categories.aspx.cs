@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,9 +38,14 @@ namespace SummitCommunity
                 .FirstOrDefault();
         }
 
-        //protected void GoToTopics_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect = "~/Topics?id=" + Category.Id;
-        //}
+        public string GetImage(string fileName, string fileExtension)
+        {
+            if (fileName == null)
+            {
+                return Path.Combine(Constants.CategoryImagesFolder, Constants.DefaultImageName);
+            }
+
+            return Path.Combine(Constants.CategoryImagesFolder, fileName) + fileExtension;
+        }
     }
 }

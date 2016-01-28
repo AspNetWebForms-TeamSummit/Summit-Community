@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace SummitCommunity
 {
-    
+
     public partial class Statistics : System.Web.UI.Page
     {
         [Inject]
@@ -27,7 +27,7 @@ namespace SummitCommunity
             topicString = (string)Cache["TopTopics"];
             if (topicString == null)
             {
-                var topic = this.Data.Questions.All().OrderByDescending(q => q.Vote).First();
+                var topic = this.Data.Questions.All().OrderByDescending(q => q.Votes.Sum(v => v.Value)).First();
                 topicString = topic.Title + ":   Vote  " + topic.Answers.Count.ToString();
                 Cache.Insert("TopTopics", topicString);
             }

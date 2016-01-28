@@ -23,6 +23,8 @@
 
         public IRepository<Answer> Answers => this.GetRepository<Answer>();
 
+        public IRepository<Vote> Votes => this.GetRepository<Vote>();
+
         public void SaveChanges()
         {
             this.context.SaveChanges();

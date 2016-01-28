@@ -23,6 +23,8 @@ namespace SummitCommunity.Data
 
         public virtual IDbSet<Answer> Answers { get; set; }
 
+        public virtual IDbSet<Vote> Votes { get; set; }
+
         public static SummitCommunityDbContext Create()
         {
             return new SummitCommunityDbContext();

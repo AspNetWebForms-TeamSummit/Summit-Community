@@ -12,6 +12,8 @@
 
         IDbSet<Answer> Answers { get; set; }
 
+        IDbSet<Vote> Votes { get; set; }
+
         IDbSet<T> Set<T>() where T : class;
 
         DbEntityEntry Entry<T>(T entity) where T : class;

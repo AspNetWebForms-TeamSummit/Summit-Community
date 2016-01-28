@@ -25,7 +25,11 @@
             GridLines="None"
             Font-Size="X-Large">
             <Columns>
-                <asp:BoundField DataField="Vote" HeaderText="Vote" SortExpression="Vote" />
+                <asp:TemplateField HeaderText="Vote" SortExpression="AverageVote">
+                    <ItemTemplate>
+                        <%# Item.Votes.Sum(v=>v.Value) %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:HyperLinkField HeaderText="Title" DataTextField="Title"
                     DataNavigateUrlFields="Id"
                     DataNavigateUrlFormatString="~/ViewQuestion?id={0}" />

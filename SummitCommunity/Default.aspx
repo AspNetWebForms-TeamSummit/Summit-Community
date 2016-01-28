@@ -5,7 +5,9 @@
     <div class="jumbotron">
 
         <h1>Summit Communities</h1>
-        <p class="lead">The Web App that brings communities together! <br />
+        <p class="lead">
+            The Web App that brings communities together!
+            <br />
             <strong>Take part in the hottest discussions. Your opinion maters! </strong>
         </p>
     </div>
@@ -34,7 +36,7 @@
                         <p>
                             <%# Item.Content  %>
                         </p>
-                        <p>Vote: <%#: Item.Vote %></p>
+                        <p>Vote: <%#: Item.Votes.Sum(v => v.Value) %></p>
                         <div>
                             <i>by <%#: Item.User.FirstName + " " + Item.User.LastName %></i>
                             <i>created on: <%# Item.CreatedOn %></i>

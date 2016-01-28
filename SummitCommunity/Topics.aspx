@@ -6,15 +6,6 @@
             <asp:Label ID="LabelCategory" runat="server"></asp:Label></strong></small></h1>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <asp:TextBox ID="TextBoxSearch" runat="server" class="form-control col-md-8" placeholder="Search" Style="width: 800px"></asp:TextBox>
-        </div>
-        <div class="col-md-2">
-            <asp:Button ID="ButtonSearch" runat="server" class="btn btn-default" Text="Search" />
-        </div>
-    </div>
-    <br />
-    <div class="row">
         <asp:GridView ID="GridViewTopics" runat="server" class="table table-hover"
             SelectMethod="GridViewTopics_GetData"
             ItemType="SummitCommunity.Data.Models.Question"

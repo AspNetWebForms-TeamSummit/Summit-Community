@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="Home - Summit Community"  description="Home">
+    <siteMapNode url="~/Abaut" title="About - Summit Community"  description="About" />
+    <siteMapNode url="~/Categories" title="Categories - Summit Community"  description="Categories">
+      <siteMapNode url="~/Topics" title="Topics - Summit Community"  description="Topics">
+        <siteMapNode url="~/ViewQuestion" title="Questions - Summit Community"  description="Questions" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="~/Statistics.aspx" title="Statistics - Summit Community"  description="Statistics" />
+  </siteMapNode>
+</siteMap>
